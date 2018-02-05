@@ -33,8 +33,27 @@ public class Adoption
     sloth.Species = "Three Toes Sloth";
 
     List<Animal> AdoptionAgency = new List<Animal>() { dog, cat, panda, sloth };
+    foreach(Animal pet in AdoptionAgency)
+    {
+      Console.WriteLine("Name: " + pet.Name);
+      Console.WriteLine("Age: " + pet.Age);
+      Console.WriteLine("Species: " + pet.Species);
+    }
+
+    Console.WriteLine("Enter maximum age: ");
+    string stringMaxAge = Console.ReadLine();
+    int maxAge = int.Parse(stringMaxAge);
+
+    List<Animal> AnimalsMatchingSearch = new List<Animal>();
 
     foreach(Animal pet in AdoptionAgency)
+    {
+      if (pet.Age < maxAge)
+      {
+        AnimalsMatchingSearch.Add(pet);
+      }
+    }
+    foreach(Animal pet in AnimalsMatchingSearch)
     {
       Console.WriteLine("Name: " + pet.Name);
       Console.WriteLine("Age: " + pet.Age);
